@@ -100,7 +100,7 @@ def markdown_to_html_node(markdown) -> ParentNode:
             block_node = ParentNode(f"h{n}", text_to_children(block[n + 1:]))
             block_nodes.append(block_node)
         if block_type is BlockType.QUOTE:
-            block_node = ParentNode("blockquote", text_to_children(block.remove(">")))
+            block_node = ParentNode("blockquote", text_to_children(block.removeprefix("> ")))
             block_nodes.append(block_node)
         if block_type is BlockType.UNORDERED_LIST:
             block_list = []

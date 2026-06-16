@@ -1,7 +1,11 @@
 from textnode import TextNode
+from copy import copy
+from generate_page import generate_pages_recursive
 
 def main():
-    dummy = TextNode("This is some anchor text", "link", "https://www.boot.dev")
-    print(dummy)
-
+    copy("static", "public")
+    generate_pages_recursive(
+        "content", 
+        "template.html", 
+        "public")
 main()
